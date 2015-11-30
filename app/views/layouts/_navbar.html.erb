@@ -12,8 +12,9 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'New Ticket', new_ticket_path %></li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
