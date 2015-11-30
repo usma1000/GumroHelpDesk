@@ -5,5 +5,3 @@ Ticketing system used by Gumro and our carriers to report and address any delive
 ToDo:
 
 * Deploy to Heroku
-
-Run <tt>rake doc:app</tt>.
