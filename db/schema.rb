@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20151130183917) do
   create_table "tickets", force: :cascade do |t|
     t.string   "subject"
     t.text     "content",    limit: 1073741823
-    t.integer  "status",                        default: 0, null: false
-    t.integer  "priority",                      default: 0, null: false
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.integer  "status",                        default: 0,     null: false
+    t.boolean  "priority",                      default: false, null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.integer  "user_id"
   end
 

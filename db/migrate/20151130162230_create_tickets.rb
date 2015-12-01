@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration
       t.string :subject
       t.text :content,             limit: 1073741823
       t.integer  :status,          default: 0,      null: false
-      t.integer  :priority,        default: 0,      null: false
+      t.boolean  :priority,        default: false,  null: false
 
       t.timestamps null: false
     end
