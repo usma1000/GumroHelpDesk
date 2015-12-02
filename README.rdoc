@@ -4,5 +4,5 @@ Ticketing system used by Gumro and our carriers to report and address any delive
 
 ToDo:
 
-* Deploy to Heroku
+* Click ribbon to update :priority on tickets index page
 * Set host in config/environments/production.rb
