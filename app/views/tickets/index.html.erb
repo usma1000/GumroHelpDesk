@@ -11,7 +11,7 @@
 </div>
 
 <ul class="nav nav-pills" role="tablist">
-  <li role="presentation"><a href="#"><i class="glyphicon glyphicon-bookmark"></i> Priority <span class="badge"><%= @tickets.priority(1).count %></span></a></li>
+  <li role="presentation"><a href="#"><i class="glyphicon glyphicon-bookmark"></i> Priority <span class="badge"><%= @tickets.priority.count %></span></a></li>
   <li role="presentation"><a href="#"><i class="glyphicon glyphicon-inbox"></i> Open <span class="badge"><%= @tickets.status(0).count %></span></a></li>
   <li role="presentation"><a href="#"><i class="glyphicon glyphicon-time"></i> Waiting <span class="badge"><%= @tickets.status(1).count %></span></a></li>
   <li role="presentation"><a href="#"><i class="glyphicon glyphicon-ok"></i> Closed</a></li>
@@ -25,7 +25,7 @@
       <th>Subject</th>
       <th>Message</th>
       <th>Created At</th>
-      <th colspan="2">Edit / Delete</th>
+      <th>Edit / Delete</th>
     </tr>
   </thead>
 
@@ -35,6 +35,8 @@
         <td>
           <% if ticket.priority %>
             <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>
+          <% else %>
+            <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>
           <% end %>
         </td>
         <td><%= link_to ticket.subject, ticket %></td>
