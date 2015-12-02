@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-2">
-    <h4>All Tickets</h4>
+    <h4>Priority Tickets</h4>
   </div>
 
   <%= render 'tickethead' %>
@@ -16,7 +16,6 @@
   <thead>
     <tr>
       <th>Priority</th>
-      <th>Status</th>
       <th>Subject</th>
       <th>Message</th>
       <th>Created At</th>
@@ -32,17 +31,6 @@
             <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>
           <% else %>
             <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>
-          <% end %>
-        </td>
-        <td>
-          <% if ticket.status == 0 %>
-            <i class="glyphicon glyphicon-inbox"></i>
-          <% elsif ticket.status == 1 %>
-            <i class="glyphicon glyphicon-time"></i>
-          <% elsif ticket.status == 2 %>
-            <i class="glyphicon glyphicon-ok"></i>
-          <% elsif ticket.status == 3 %>
-            <i class="glyphicon glyphicon-trash"></i>
           <% end %>
         </td>
         <td><%= link_to ticket.subject, ticket %></td>

@@ -5,7 +5,11 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.all.except(status: 3, status: 4)
+  end
+
+  def priority
+    @tickets = Ticket.priority.all.except(status: 3, status: 4)
   end
 
   # GET /tickets/1

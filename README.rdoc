@@ -2,7 +2,11 @@
 
 Ticketing system used by Gumro and our carriers to report and address any delivery issues.
 
-ToDo:
+To Do:
 
-* Click ribbon to update :priority on tickets index page
-* Set host in config/environments/production.rb
+* Delete button should change status to 4 instead of deleting.
+* Click ribbon to update :priority on tickets index page.
+* Change index root so it doesn't show deleted tickets. Currently shows all tickets.
+* Add new pages for open, waiting, closed, trashed statuses.
+* Add status symbols in index table.
+* Set host in config/environments/production.rb.
