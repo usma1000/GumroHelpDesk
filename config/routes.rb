@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :tickets do
     member do
       get :priority_status
+      get :waiting_status
     end
   end
 

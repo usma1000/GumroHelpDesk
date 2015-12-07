@@ -12,11 +12,12 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all.except(status: 3, status: 4)
+    @tickets = Ticket.all.except(:done, :trashed)
   end
 
   def priority
-    @tickets = Ticket.priority.all.except(status: 3, status: 4)
+    @tickets = Ticket.all.except(:done, :trashed)
+    @tickets_priority = Ticket.priority.all.except(:done, :trashed)
   end
 
   # GET /tickets/1

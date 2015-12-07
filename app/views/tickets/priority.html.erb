@@ -24,13 +24,15 @@
   </thead>
 
   <tbody>
-    <% @tickets.each do |ticket| %>
+    <% @tickets_priority.each do |ticket| %>
       <tr>
         <td>
-          <% if ticket.priority %>
-            <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>
-          <% else %>
-            <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>
+          <%= link_to priority_status_ticket_path(ticket) do %>
+            <% if ticket.priority %>
+              <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>
+            <% else %>
+              <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </td>
         <td><%= link_to ticket.subject, ticket %></td>
