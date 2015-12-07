@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <h4>All Tickets</h4>
+    <h4>Waiting Tickets</h4>
   </div>
 
   <%= render 'tickethead' %>
@@ -24,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @tickets_open.each do |ticket| %>
+    <% @tickets_waiting.each do |ticket| %>
       <tr>
         <td>
             <%= link_to priority_status_ticket_path(ticket) do %>
@@ -44,8 +44,8 @@
               <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
             <% end %>
 
-            <%= link_to waiting_status_ticket_path(ticket), class: 'btn btn-default' do %>
-              <i class="glyphicon glyphicon-time" aria-hidden="true"></i>
+            <%= link_to open_status_ticket_path(ticket), class: 'btn btn-default' do %>
+              <i class="glyphicon glyphicon-inbox" aria-hidden="true"></i>
             <% end %>
 
             <%= link_to trashed_status_ticket_path(ticket), class: 'btn btn-danger' do %>

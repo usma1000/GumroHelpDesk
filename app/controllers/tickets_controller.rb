@@ -1,5 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:priority_status, :open_status, :waiting_status, :done_status, :trashed_status, :show, :edit, :update, :destroy]
+  before_action :ticket_head_param, only: [:index, :priority, :waiting, :done, :trashed]
   before_action :authenticate_user!
 
 
@@ -36,15 +37,23 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all.except(:done, :trashed)
     @tickets_open = Ticket.all.open
   end
 
   def priority
-    @tickets = Ticket.all.except(:done, :trashed)
-    @tickets_priority = Ticket.priority.all.except(:done, :trashed)
   end
 
+  def waiting
+    @tickets_waiting = Ticket.all.waiting
+  end
+
+  def done
+    @tickets_done = Ticket.all.done
+  end
+
+  def trashed
+    @tickets_trashed = Ticket.all.trashed
+  end
   # GET /tickets/1
   # GET /tickets/1.json
   def show
@@ -103,6 +112,11 @@ class TicketsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_ticket
       @ticket = Ticket.find(params[:id])
+    end
+
+    def ticket_head_param
+      @tickets = Ticket.all.except(:done, :trashed)
+      @tickets_priority = Ticket.priority.allopen
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

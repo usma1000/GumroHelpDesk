@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <h4>All Tickets</h4>
+    <h4>Done Tickets</h4>
   </div>
 
   <%= render 'tickethead' %>
@@ -24,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @tickets_open.each do |ticket| %>
+    <% @tickets_done.each do |ticket| %>
       <tr>
         <td>
             <%= link_to priority_status_ticket_path(ticket) do %>

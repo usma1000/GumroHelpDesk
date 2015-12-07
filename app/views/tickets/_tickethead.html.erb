@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-7">
   <ul class="nav nav-pills" role="tablist">
     <!-- <li role="presentation">
       <%#= link_to root_path do %>
@@ -10,12 +10,28 @@
         <i class="glyphicon glyphicon-inbox"></i> Open <span class="badge" <%= "style=background-color:red" if @tickets.open.count > 0 %> ><%= @tickets.open.count %></span>
       <% end %>
     </li>
-    <li role="presentation"><a href="#"><i class="glyphicon glyphicon-time"></i> Waiting <span class="badge" <%= "style=background-color:red" if @tickets.waiting.count > 0 %> ><%= @tickets.waiting.count %></span></a></li>
-    <li role="presentation"><a href="#"><i class="glyphicon glyphicon-ok"></i> Done</a></li>
-    <li role="presentation"><a href="#"><i class="glyphicon glyphicon-trash"></i> Trashed</a></li>
+
+    <li role="presentation">
+      <%= link_to waiting_tickets_path do %>
+        <i class="glyphicon glyphicon-time"></i> Waiting <span class="badge" <%= "style=background-color:red" if @tickets.waiting.count > 0 %> ><%= @tickets.waiting.count %></span>
+      <% end %>
+    </li>
+
+    <li role="presentation">
+      <%= link_to done_tickets_path do %>
+        <i class="glyphicon glyphicon-ok"></i> Done
+      <% end %>
+    </li>
+
+    <li role="presentation">
+      <%= link_to trashed_tickets_path do %>
+        <i class="glyphicon glyphicon-trash"></i> Trashed
+      <% end %>
+    </li>
+
     <li role="presentation">
       <%= link_to priority_tickets_path do %>
-        <i class="glyphicon glyphicon-bookmark"></i> Priority <span class="badge" <%= "style=background-color:red" if @tickets.priority.count > 0 %> ><%= @tickets.priority.count %></span>
+        <i class="glyphicon glyphicon-bookmark"></i> Priority <span class="badge" <%= "style=background-color:red" if @tickets_priority.count > 0 %> ><%= @tickets_priority.count %></span>
       <% end %>
     </li>
   </ul>

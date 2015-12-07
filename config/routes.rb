@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   get '/priority', to: 'tickets#priority', as: 'priority_tickets'
   get '/waiting', to: 'tickets#waiting', as: 'waiting_tickets'
-
+  get '/done', to: 'tickets#done', as: 'done_tickets'
+  get '/trashed', to: 'tickets#trashed', as: 'trashed_tickets'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
