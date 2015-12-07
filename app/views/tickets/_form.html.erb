@@ -11,20 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
+  <div class="form-group">
+    <%= f.label :subject %>
+    <%= f.text_field :subject, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :priority %><br>
-    <%= f.check_box :priority %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, rows: "10", class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Back', tickets_path, class: 'btn btn-default' %>
   </div>
 <% end %>

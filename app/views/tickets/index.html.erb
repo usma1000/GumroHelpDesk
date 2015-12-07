@@ -35,13 +35,13 @@
           <% end %>
         </td>
         <td>
-          <% if ticket.status == 0 %>
+          <% if ticket.active? %>
             <i class="glyphicon glyphicon-inbox"></i>
-          <% elsif ticket.status == 1 %>
+          <% elsif ticket.waiting? %>
             <i class="glyphicon glyphicon-time"></i>
-          <% elsif ticket.status == 2 %>
+          <% elsif ticket.done? %>
             <i class="glyphicon glyphicon-ok"></i>
-          <% elsif ticket.status == 3 %>
+          <% elsif ticket.trashed? %>
             <i class="glyphicon glyphicon-trash"></i>
           <% end %>
         </td>
