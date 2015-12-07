@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :tickets
+  resources :tickets do
+    member do
+      get :priority_status
+    end
+  end
+
+
   get '/priority', to: 'tickets#priority', as: 'priority_tickets'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -29,9 +29,11 @@
       <tr>
         <td>
           <% if ticket.priority %>
-            <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>
+            <%= link_to (ticket.priority ? "Yes" : "No"), priority_status_ticket_path(ticket) %>
+            <!-- <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i> -->
           <% else %>
-            <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>
+            <%= link_to (ticket.priority ? "Yes" : "No"), priority_status_ticket_path(ticket) %>
+            <!-- <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i> -->
           <% end %>
         </td>
         <td>

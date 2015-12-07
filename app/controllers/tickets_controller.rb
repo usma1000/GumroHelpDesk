@@ -1,6 +1,13 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:priority_status, :show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
+
+  def priority_status
+    @ticket.priority = !@ticket.priority
+    @ticket.save
+    redirect_to root_path
+  end
 
   # GET /tickets
   # GET /tickets.json
