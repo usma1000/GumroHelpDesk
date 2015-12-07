@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
   def priority_status
     @ticket.priority = !@ticket.priority
     @ticket.save
-    redirect_to root_path
+    redirect_to :back
   end
 
   # GET /tickets
