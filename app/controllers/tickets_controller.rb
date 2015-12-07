@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:priority_status, :show, :edit, :update, :destroy]
+  before_action :set_ticket, only: [:priority_status, :open_status, :waiting_status, :done_status, :trashed_status, :show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
 
@@ -9,10 +9,35 @@ class TicketsController < ApplicationController
     redirect_to :back
   end
 
+  def open_status
+    @ticket.update(status: 0)
+    @ticket.save
+    redirect_to :back
+  end
+
+  def waiting_status
+    @ticket.update(status: 1)
+    @ticket.save
+    redirect_to :back
+  end
+
+  def done_status
+    @ticket.update(status: 2)
+    @ticket.save
+    redirect_to :back
+  end
+
+  def trashed_status
+    @ticket.update(status: 3)
+    @ticket.save
+    redirect_to :back
+  end
+
   # GET /tickets
   # GET /tickets.json
   def index
     @tickets = Ticket.all.except(:done, :trashed)
+    @tickets_open = Ticket.all.open
   end
 
   def priority
