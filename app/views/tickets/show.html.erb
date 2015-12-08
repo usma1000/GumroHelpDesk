@@ -2,13 +2,19 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <p>
+        <%= link_to priority_status_ticket_path(@ticket) do %>
+          <% if @ticket.priority %>
+            <i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>
+          <% else %>
+            <i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
         <span class="lead"><%= @ticket.subject %></span>
-        <span class="text-muted pull-right"> Created At: <%= @ticket.created_at %></span>
+        <span class="text-muted pull-right">Created <%= time_ago_in_words(@ticket.created_at) %> ago.</span>
       </p>
     </div>
     <div class="panel-body">
       <p><%= @ticket.content %></p>
-      <p><%= @ticket.priority %></p>
     </div>
   </div>
   <div class="btn-group">
