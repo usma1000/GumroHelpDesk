@@ -10,3 +10,5 @@ To Do:
 * Add new pages for open, waiting, closed, trashed statuses.
 * Add status symbols in index table.
 * Set host in config/environments/production.rb.
+* Add Will Paginate.
+* Add gradient to tables.
