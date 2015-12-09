@@ -38,6 +38,8 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets_open = Ticket.all.open
+    @tickets_grid = initialize_grid(@tickets_open, csv_file_name: 'Tickets')
+    export_grid_if_requested
   end
 
   def priority

@@ -7,3 +7,11 @@ To Do:
 * Set host in config/environments/production.rb.
 * Set up emails.
 * Set up devise admin through cancan.
+* Export to excel.
+* Add carrier name, location, and store number to tickets.
+* Add locations model and tie to user accounts.
+* Add sortable tables.
+* Remove priority page and links since tables are not sortable.
+
+Wice_grid instructions:
+https://github.com/leikind/wice_grid
