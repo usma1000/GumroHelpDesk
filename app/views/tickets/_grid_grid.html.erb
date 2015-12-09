@@ -1,0 +1,11 @@
+<%= grid(@tickets_grid) do |g|
+  g.blank_slate "There are no tickets."
+
+  g.column  name: 'Subject', attribute: 'subject'
+
+  g.column name: 'Message', attribute: 'content'
+
+  g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
+    "Created " + time_ago_in_words(ticket.created_at) + " ago."
+  end
+end -%>
