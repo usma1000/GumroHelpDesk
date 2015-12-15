@@ -10,6 +10,12 @@ class TicketsController < ApplicationController
     redirect_to :back
   end
 
+  def open_status
+    @ticket.update(status: 0)
+    @ticket.save
+    redirect_to :back
+  end
+
   def waiting_status
     @ticket.update(status: 1)
     @ticket.save

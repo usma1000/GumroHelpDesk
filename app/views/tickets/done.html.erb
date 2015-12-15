@@ -38,8 +38,8 @@
   end
 
   g.column do |ticket|
-    link_to done_status_ticket_path(ticket), class: "btn btn-success" do
-      '<i class="glyphicon glyphicon-ok" aria-hidden="true"></i>'.html_safe
+    link_to open_status_ticket_path(ticket), class: "btn btn-default" do
+      '<i class="glyphicon glyphicon-inbox" aria-hidden="true"></i>'.html_safe
     end
   end
 
