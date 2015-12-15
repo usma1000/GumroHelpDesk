@@ -12,6 +12,8 @@ To Do:
 * Add locations model and tie to user accounts.
 * Add sortable tables.
 * Remove priority page and links since tables are not sortable.
+* Keep track of which user changed ticket status.
+* Display which user changed status.
 
 Wice_grid instructions:
 https://github.com/leikind/wice_grid
