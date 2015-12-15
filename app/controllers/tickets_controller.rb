@@ -10,12 +10,6 @@ class TicketsController < ApplicationController
     redirect_to :back
   end
 
-  def open_status
-    @ticket.update(status: 0)
-    @ticket.save
-    redirect_to :back
-  end
-
   def waiting_status
     @ticket.update(status: 1)
     @ticket.save
@@ -38,7 +32,7 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     @tickets_open = Ticket.all.open
-    @tickets_grid = initialize_grid(@tickets_open, csv_file_name: 'Tickets')
+    @tickets_grid = initialize_grid(@tickets_open, csv_file_name: 'Open Tickets')
     export_grid_if_requested
   end
 
@@ -47,14 +41,20 @@ class TicketsController < ApplicationController
 
   def waiting
     @tickets_waiting = Ticket.all.waiting
+    @tickets_grid = initialize_grid(@tickets_waiting, csv_file_name: 'Waiting Tickets')
+    export_grid_if_requested
   end
 
   def done
     @tickets_done = Ticket.all.done
+    @tickets_grid = initialize_grid(@tickets_done, csv_file_name: 'Done Tickets')
+    export_grid_if_requested
   end
 
   def trashed
     @tickets_trashed = Ticket.all.trashed
+    @tickets_grid = initialize_grid(@tickets_trashed, csv_file_name: 'Trashed Tickets')
+    export_grid_if_requested
   end
   # GET /tickets/1
   # GET /tickets/1.json
