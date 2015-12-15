@@ -17,7 +17,7 @@ if defined?(Wice::Defaults)
   Wice::Defaults::REUSE_LAST_COLUMN_FOR_FILTER_ICONS = true
 
   # The label of the first option of a custom dropdown list meaning 'All items'
-  Wice::Defaults::CUSTOM_FILTER_ALL_LABEL = '--'
+  Wice::Defaults::CUSTOM_FILTER_ALL_LABEL = 'All'
 
   # A list of classes for the table tag of the grid
   Wice::Defaults::DEFAULT_TABLE_CLASSES = ['table', 'table-hover', 'table-striped']
@@ -32,7 +32,7 @@ if defined?(Wice::Defaults)
   Wice::Defaults::ENABLE_EXPORT_TO_CSV = true
 
   # Default CSV field separator
-  Wice::Defaults::CSV_FIELD_SEPARATOR = ','
+  Wice::Defaults::CSV_FIELD_SEPARATOR = ', '
 
   # The strategy when to show the filter.
   # * <tt>:when_filtered</tt> - when the table is the result of filtering
