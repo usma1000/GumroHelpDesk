@@ -43,6 +43,8 @@ class TicketsController < ApplicationController
   end
 
   def priority
+    @tickets_grid = initialize_grid(@tickets_priority, csv_file_name: 'Priority Tickets')
+    export_grid_if_requested
   end
 
   def waiting

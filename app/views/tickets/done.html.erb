@@ -30,7 +30,7 @@
   end
 
   g.column name: 'Message', attribute: 'content' do |ticket|
-    truncate(ticket.content, length: 100, separator: ' ')
+    truncate(ticket.content, length: 90, separator: ' ')
   end
 
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
