@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem "wice_grid", '3.6.0.pre4'
 gem 'font-awesome-sass',  '~> 4.3'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'byebug'
