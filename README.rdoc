@@ -7,15 +7,11 @@ To Do:
 * Set host in config/environments/production.rb.
 * Set up emails.
 * Set up devise admin through cancan.
-* Export to excel.
 * Add carrier name, location, and store number to tickets.
 * Add locations model and tie to user accounts.
-* Add sortable tables.
-* Remove priority page and links since tables are not sortable.
 * Keep track of which user changed ticket status.
 * Display which user changed status.
 * Deploy to Heroku.
-* Add wice grid to priority page. Include Status column and change status using if/else.
 
 Wice_grid instructions:
 [Wice Grid GitHub](https://github.com/leikind/wice_grid)
