@@ -1,6 +1,6 @@
 == GUMRO HELP DESK
 
-Ticketing system used by Gumro and our carriers to report and address any delivery issues.
+Ticketing system used by Gumro and Associates and our carriers to report and address any delivery issues.
 
 To Do:
 
@@ -14,6 +14,8 @@ To Do:
 * Remove priority page and links since tables are not sortable.
 * Keep track of which user changed ticket status.
 * Display which user changed status.
+* Deploy to Heroku.
+* Add wice grid to priority page. Include Status column and change status using if/else.
 
 Wice_grid instructions:
-https://github.com/leikind/wice_grid
+[Wice Grid GitHub](https://github.com/leikind/wice_grid)
