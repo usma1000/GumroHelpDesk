@@ -12,6 +12,7 @@ To Do:
 * Keep track of which user changed ticket status.
 * Display which user changed status.
 * Deploy to Heroku.
+* Add labels to Tickets.
 
 Wice_grid instructions:
 [Wice Grid GitHub](https://github.com/leikind/wice_grid)
