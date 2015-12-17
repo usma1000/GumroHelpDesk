@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stores
+
   devise_for :users
   resources :tickets do
     member do

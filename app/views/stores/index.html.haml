@@ -1,0 +1,18 @@
+%p.lead Stores
+
+- if @stores.count > 0
+  %table.table.table-striped
+    %tr
+      %th Store Name
+      %th Delete Store
+    - @stores.each do |s|
+      %tr
+        %td
+          = s.store
+        %td
+          = link_to s, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
+            - '<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>'.html_safe
+- else
+  %p.text-danger There are no stores to display.
+
+= link_to 'Add New Store', new_store_path, class: 'btn btn-primary'
