@@ -1,0 +1,21 @@
+.row
+  .col-md-6.col-md-offset-3
+    = link_to new_carrier_path, class: 'btn btn-success pull-right' do
+      %i.glyphicon.glyphicon-plus
+      Add Carrier
+    %p.lead Carriers List
+
+    - if @carrier.count > 0
+      %table.table.table-striped.table-hover
+        %tr
+          %th Name
+          %th Delete
+        - @carrier.each do |c|
+          %tr
+            %td
+              = c.name
+            %td
+              = link_to c, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
+                %i.glyphicon.glyphicon-trash
+    - else
+      %p.text-danger There are no carriers to display.

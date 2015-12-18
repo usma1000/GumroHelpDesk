@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :carriers
   resources :locations
   resources :stores
 
