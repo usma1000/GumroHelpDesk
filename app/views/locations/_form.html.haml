@@ -10,8 +10,11 @@
             - @location.errors.full_messages.each do |message|
               %li= message
       .form-group
-        = f.label :location
-        = f.text_field :location, class: 'form-control'
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+
+        = f.label :carrier_id, "Carrier"
+        = f.collection_select(:carrier_id, Carrier.all, :id, :name, { :prompt => 'Select a carrier', :selected => @location.carrier_id }, { class: 'form-control' })
 
       .actions
         = link_to 'Back', locations_path, class: 'btn btn-default'

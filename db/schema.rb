@@ -11,34 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217164805) do
+ActiveRecord::Schema.define(version: 20151221184024) do
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "users_id"
+    t.integer  "user_id"
   end
 
-  add_index "carriers", ["users_id"], name: "index_carriers_on_users_id"
+  add_index "carriers", ["user_id"], name: "index_carriers_on_user_id"
 
   create_table "locations", force: :cascade do |t|
-    t.string   "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "carriers_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "carrier_id"
   end
 
-  add_index "locations", ["carriers_id"], name: "index_locations_on_carriers_id"
+  add_index "locations", ["carrier_id"], name: "index_locations_on_carrier_id"
 
   create_table "stores", force: :cascade do |t|
     t.string   "store"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "locations_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "location_id"
   end
 
-  add_index "stores", ["locations_id"], name: "index_stores_on_locations_id"
+  add_index "stores", ["location_id"], name: "index_stores_on_location_id"
 
   create_table "tickets", force: :cascade do |t|
     t.string   "subject"

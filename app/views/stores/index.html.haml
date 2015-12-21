@@ -9,11 +9,14 @@
       %table.table.table-striped.table-hover
         %tr
           %th Name
+          %th Location
           %th Delete
         - @stores.each do |s|
           %tr
             %td
               = link_to s.store, edit_store_path(s)
+            %td
+              = s.location.name
             %td
               = link_to s, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
                 %i.glyphicon.glyphicon-trash
