@@ -13,7 +13,6 @@ To Do:
 * Display which user changed status.
 * Deploy to Heroku.
 * Add labels to Tickets.
-* Edit store and location names.
 
 Wice_grid instructions:
 [Wice Grid GitHub](https://github.com/leikind/wice_grid)

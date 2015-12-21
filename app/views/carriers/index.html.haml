@@ -13,7 +13,7 @@
         - @carrier.each do |c|
           %tr
             %td
-              = c.name
+              = link_to c.name, edit_carrier_path(c)
             %td
               = link_to c, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
                 %i.glyphicon.glyphicon-trash
