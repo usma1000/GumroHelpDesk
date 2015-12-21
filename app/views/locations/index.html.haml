@@ -13,7 +13,7 @@
         - @locations.each do |l|
           %tr
             %td
-              = l.location
+              = link_to l.location, edit_location_path(l)
             %td
               = link_to l, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
                 %i.glyphicon.glyphicon-trash

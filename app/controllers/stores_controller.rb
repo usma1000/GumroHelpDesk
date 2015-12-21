@@ -24,7 +24,7 @@ class StoresController < ApplicationController
 
   def update
     if @store.update(store_params)
-      redirect_to :back, notice: 'Store was successfully updated.'
+      redirect_to stores_path, notice: 'Store was successfully updated.'
     else
       render :edit
     end
