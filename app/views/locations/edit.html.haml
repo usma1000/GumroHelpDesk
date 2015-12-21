@@ -1,1 +1,11 @@
-= render 'form'
+.row
+  = render 'form'
+
+  .col-md-3
+    .panel.panel-default
+      .panel-heading
+        %p.lead Stores at this location
+      .panel-body
+        %ul.nav.nav-pills.nav-stacked
+          - @location.stores.each do |s|
+            %li.text-uppercase= link_to s.store, edit_store_path(s)
