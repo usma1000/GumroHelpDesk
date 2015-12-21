@@ -37,7 +37,7 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets_open = Ticket.all.open
+    @tickets_open = Ticket.where(:user_id => current_user.id).open
     @tickets_grid = initialize_grid(@tickets_open, csv_file_name: 'Open Tickets')
     export_grid_if_requested
   end
@@ -48,19 +48,19 @@ class TicketsController < ApplicationController
   end
 
   def waiting
-    @tickets_waiting = Ticket.all.waiting
+    @tickets_waiting = Ticket.where(:user_id => current_user.id).all.waiting
     @tickets_grid = initialize_grid(@tickets_waiting, csv_file_name: 'Waiting Tickets')
     export_grid_if_requested
   end
 
   def done
-    @tickets_done = Ticket.all.done
+    @tickets_done = Ticket.where(:user_id => current_user.id).all.done
     @tickets_grid = initialize_grid(@tickets_done, csv_file_name: 'Done Tickets')
     export_grid_if_requested
   end
 
   def trashed
-    @tickets_trashed = Ticket.all.trashed
+    @tickets_trashed = Ticket.where(:user_id => current_user.id).all.trashed
     @tickets_grid = initialize_grid(@tickets_trashed, csv_file_name: 'Trashed Tickets')
     export_grid_if_requested
   end
@@ -125,8 +125,8 @@ class TicketsController < ApplicationController
     end
 
     def ticket_head_param
-      @tickets = Ticket.all.except(:done, :trashed)
-      @tickets_priority = Ticket.priority.allopen
+      @tickets = Ticket.where(:user_id => current_user.id).except(:done, :trashed)
+      @tickets_priority = Ticket.where(:user_id => current_user.id).priority.allopen
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
