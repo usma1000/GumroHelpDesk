@@ -2,6 +2,7 @@
   .panel-heading
     %p.lead Manage
   .panel-body
-    %p.text-uppercase= link_to "Carriers", carriers_path
-    %p.text-uppercase= link_to "Locations", locations_path
-    %p.text-uppercase= link_to "Stores", stores_path
+    %ul.nav.nav-pills.nav-stacked
+      %li.text-uppercase= link_to "Carriers", carriers_path
+      %li.text-uppercase= link_to "Locations", locations_path
+      %li.text-uppercase= link_to "Stores", stores_path
