@@ -13,7 +13,7 @@
         - @stores.each do |s|
           %tr
             %td
-              = s.store
+              = link_to s.store, edit_store_path(s)
             %td
               = link_to s, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
                 %i.glyphicon.glyphicon-trash

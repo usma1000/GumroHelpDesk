@@ -1,4 +1,7 @@
 class StoresController < ApplicationController
+  before_action :set_store, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
+
   def index
     @stores = Store.all
   end
@@ -16,13 +19,28 @@ class StoresController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @store.update(store_params)
+      redirect_to :back, notice: 'Store was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
-    @store = Store.find(params[:id])
     @store.destroy
     redirect_to stores_url, notice: 'Store was successfully destroyed.'
   end
 
   private
+
+    def set_store
+      @store = Store.find(params[:id])
+    end
+
     def store_params
       params.require(:store).permit(:store, :locations_id)
     end
