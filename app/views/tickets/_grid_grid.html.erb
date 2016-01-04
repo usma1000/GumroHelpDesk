@@ -5,7 +5,9 @@
 
   g.column name: 'Message', attribute: 'content'
 
+  g.column name: 'Store', attribute: 'store', assoc: :store
+
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
-    "Created " + time_ago_in_words(ticket.created_at) + " ago."
+    time_ago_in_words(ticket.created_at) + " ago."
   end
 end -%>

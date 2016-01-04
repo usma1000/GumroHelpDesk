@@ -38,7 +38,7 @@
   end
 
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
-    "Created " + time_ago_in_words(ticket.created_at) + " ago."
+    time_ago_in_words(ticket.created_at) + " ago"
   end
 
   g.column do |ticket|
