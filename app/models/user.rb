@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tickets, dependent: :destroy
-  has_one :carrier
+  belongs_to :carrier
 end

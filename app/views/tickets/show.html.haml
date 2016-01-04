@@ -13,6 +13,9 @@
     .panel-body
       %strong Status:
       %strong= @ticket.status.capitalize
+      .pull-right
+        %strong Store:
+        %strong= @ticket.store.store
       %hr
       %p= @ticket.content
   .btn-group

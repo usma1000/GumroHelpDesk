@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221184024) do
+ActiveRecord::Schema.define(version: 20160104174310) do
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
@@ -48,10 +48,12 @@ ActiveRecord::Schema.define(version: 20151221184024) do
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
     t.integer  "user_id"
+    t.integer  "store_id"
   end
 
   add_index "tickets", ["priority"], name: "index_tickets_on_priority"
   add_index "tickets", ["status"], name: "index_tickets_on_status"
+  add_index "tickets", ["store_id"], name: "index_tickets_on_store_id"
   add_index "tickets", ["user_id"], name: "index_tickets_on_user_id"
 
   create_table "users", force: :cascade do |t|
@@ -69,8 +71,10 @@ ActiveRecord::Schema.define(version: 20151221184024) do
     t.datetime "updated_at",                          null: false
     t.string   "first_name"
     t.string   "last_name"
+    t.integer  "carrier_id"
   end
 
+  add_index "users", ["carrier_id"], name: "index_users_on_carrier_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["first_name"], name: "index_users_on_first_name"
   add_index "users", ["last_name"], name: "index_users_on_last_name"

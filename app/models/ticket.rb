@@ -1,5 +1,6 @@
 class Ticket < ActiveRecord::Base
   belongs_to :user
+  belongs_to :store
 
   enum status: [ :open, :waiting, :done, :trashed ]
 
