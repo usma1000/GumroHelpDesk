@@ -29,10 +29,12 @@
       <% end %>
     </li>
 
-    <li role="presentation">
-      <%= link_to priority_tickets_path do %>
-        <i class="glyphicon glyphicon-bookmark"></i> Priority <span class="badge" <%= "style=background-color:red" if @tickets_priority.count > 0 %> ><%= @tickets_priority.count %></span>
-      <% end %>
-    </li>
+    <% if current_user.admin? %>
+      <li role="presentation">
+        <%= link_to priority_tickets_path do %>
+          <i class="glyphicon glyphicon-bookmark"></i> Priority <span class="badge" <%= "style=background-color:red" if @tickets_priority.count > 0 %> ><%= @tickets_priority.count %></span>
+        <% end %>
+      </li>
+    <% end %>
   </ul>
 </div>

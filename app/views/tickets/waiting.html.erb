@@ -15,12 +15,14 @@
 <%= grid(@tickets_grid) do |g|
   g.blank_slate "There are no tickets."
 
-  g.column name: 'Priority', attribute: 'priority', filter: false do |ticket|
-    link_to priority_status_ticket_path(ticket) do
-      if ticket.priority
-        '<i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>'.html_safe
-      else
-        '<i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>'.html_safe
+  if current_user.admin?
+    g.column name: 'Priority', attribute: 'priority', filter: false do |ticket|
+      link_to priority_status_ticket_path(ticket) do
+        if ticket.priority
+          '<i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>'.html_safe
+        else
+          '<i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>'.html_safe
+        end
       end
     end
   end
@@ -39,6 +41,12 @@
 
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
     time_ago_in_words(ticket.created_at) + " ago"
+  end
+
+  if current_user.admin?
+    g.column name: 'Created By', attribute: 'email', assoc: :user do |ticket|
+      truncate(ticket.user.email, length: 25)
+    end
   end
 
   g.column do |ticket|

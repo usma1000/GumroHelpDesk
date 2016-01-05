@@ -15,18 +15,20 @@
 <%= grid(@tickets_grid) do |g|
   g.blank_slate "There are no tickets."
 
-  g.column name: 'Priority', attribute: 'priority', filter: false do |ticket|
-    link_to priority_status_ticket_path(ticket) do
-      if ticket.priority
-        '<i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>'.html_safe
-      else
-        '<i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>'.html_safe
+  if current_user.admin?
+    g.column name: 'Priority', attribute: 'priority', filter: false do |ticket|
+      link_to priority_status_ticket_path(ticket) do
+        if ticket.priority
+          '<i class="glyphicon glyphicon-bookmark" style="color: red" aria-hidden="true"></i>'.html_safe
+        else
+          '<i class="glyphicon glyphicon-bookmark" style="color: #e6e6e6" aria-hidden="true"></i>'.html_safe
+        end
       end
     end
   end
 
   g.column  name: 'Subject', attribute: 'subject' do |ticket|
-    link_to ticket.subject, ticket
+    link_to truncate(ticket.subject, length: 16), ticket
   end
 
   g.column name: 'Message', attribute: 'content' do |ticket|
@@ -41,6 +43,12 @@
     time_ago_in_words(ticket.created_at) + " ago"
   end
 
+  if current_user.admin?
+    g.column name: 'Created By', attribute: 'email', assoc: :user do |ticket|
+      truncate(ticket.user.email, length: 25)
+    end
+  end
+  
   g.column do |ticket|
     link_to open_status_ticket_path(ticket), class: "btn btn-default" do
       '<i class="glyphicon glyphicon-inbox" aria-hidden="true"></i>'.html_safe
