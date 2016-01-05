@@ -2,11 +2,12 @@
   .panel.panel-default
     .panel-heading
       %p
-        = link_to priority_status_ticket_path(@ticket) do
-          - if @ticket.priority
-            %i.glyphicon.glyphicon-bookmark{"aria-hidden" => "true", :style => "color: red"}
-          - else
-            %i.glyphicon.glyphicon-bookmark{"aria-hidden" => "true", :style => "color: #e6e6e6"}
+        - if current_user.admin?
+          = link_to priority_status_ticket_path(@ticket) do
+            - if @ticket.priority
+              %i.glyphicon.glyphicon-bookmark{"aria-hidden" => "true", :style => "color: red"}
+            - else
+              %i.glyphicon.glyphicon-bookmark{"aria-hidden" => "true", :style => "color: #e6e6e6"}
         %span.lead= @ticket.subject
         %span.text-muted.pull-right
           Created #{time_ago_in_words(@ticket.created_at)} ago.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104200746) do
+ActiveRecord::Schema.define(version: 20160105192808) do
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(version: 20160104200746) do
     t.datetime "updated_at",                                    null: false
     t.integer  "user_id"
     t.integer  "store_id"
+    t.integer  "carrier_id"
   end
 
+  add_index "tickets", ["carrier_id"], name: "index_tickets_on_carrier_id"
   add_index "tickets", ["priority"], name: "index_tickets_on_priority"
   add_index "tickets", ["status"], name: "index_tickets_on_status"
   add_index "tickets", ["store_id"], name: "index_tickets_on_store_id"

@@ -40,7 +40,7 @@ class TicketsController < ApplicationController
     if current_user.admin?
       @tickets_open = Ticket.all.open
     else
-      @tickets_open = Ticket.where(:user_id => current_user.id).open
+      @tickets_open = Ticket.where(:carrier_id => current_user.carrier_id).open
     end
     @tickets_grid = initialize_grid(@tickets_open, csv_file_name: 'Open Tickets')
     export_grid_if_requested
@@ -100,6 +100,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user_id = current_user.id
+    @ticket.carrier_id = current_user.carrier_id
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
