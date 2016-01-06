@@ -47,6 +47,10 @@
     g.column name: 'Created By', attribute: 'email', assoc: :user do |ticket|
       truncate(ticket.user.email, length: 25)
     end
+
+    g.column name: 'Carrier', attribute: 'name', assoc: :carrier do |ticket|
+      ticket.carrier.name
+    end
   end
 
   g.column do |ticket|
