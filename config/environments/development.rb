@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -42,6 +42,17 @@ Rails.application.configure do
 
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  #Configuration for sending email
+  ActionMailer::Base.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'yourapp.heroku.com',
+    :authentication => :plain,
+  }
+  ActionMailer::Base.delivery_method = :smtp
 
 
 end

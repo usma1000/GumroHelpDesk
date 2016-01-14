@@ -64,6 +64,20 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.default_url_options = { :host => 'https://gumrohelpdesk.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'https://gumrohelpdesk.herokuapp.com'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   :port                 => 587,
+   :address              => "smtp.mailgun.org",
+   :domain               => "gumrohelpdesk.herokuapp.com",
+   :user_name            => "postmaster@gumrocms.gumroandassociates.com",
+   :password             => "be14f37c8b927e4c4cc5873864b04a27",
+   :authentication       => "plain",
+  :enable_starttls_auto => true
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
