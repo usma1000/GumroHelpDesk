@@ -1,18 +1,11 @@
 == GUMRO HELP DESK
 
-Ticketing system used by Gumro and Associates and our carriers to report and address any delivery issues.
+Support ticket system used by Gumro & Associates and their carriers to report and address any delivery issues.
 
 To Do:
 
-* Set host in config/environments/production.rb.
-* Set up emails.
-* Set up devise admin through cancan.
-* Add carrier name, location, and store number to tickets.
-* Add locations model and tie to user accounts.
-* Keep track of which user changed ticket status.
 * Display which user changed status.
-* Deploy to Heroku.
 * Add labels to Tickets.
-
-Wice_grid instructions:
-[Wice Grid GitHub](https://github.com/leikind/wice_grid)
+* Add ticket#new dropdown to select from common issues.
+* Add commenting to ticket#show.
+* Create an admin management page.
