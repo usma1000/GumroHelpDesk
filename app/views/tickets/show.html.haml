@@ -16,7 +16,10 @@
       %strong= @ticket.status.capitalize
       .pull-right
         %strong Store:
-        %strong= @ticket.store.store
+        - if @ticket.store
+          %strong= @ticket.store.store
+        - else
+          %span No Store
       %hr
       %p= @ticket.content
   .btn-group
