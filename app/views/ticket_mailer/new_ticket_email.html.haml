@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      = @ticket.subject
+    %p
+      = @ticket.content
+    %strong
+      = @ticket.store.store
+    %p
+      = link_to "View this ticket online.", ticket_path(@ticket)

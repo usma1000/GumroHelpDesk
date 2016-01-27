@@ -3,6 +3,9 @@ class Ticket < ActiveRecord::Base
   belongs_to :store
   belongs_to :carrier
 
+  validates :subject, :presence => true
+  validates :content, :presence => true
+
   enum status: [ :open, :waiting, :done, :trashed ]
 
   scope :allopen, -> {where('status = 0 or status = 1')}
