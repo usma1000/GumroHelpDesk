@@ -44,7 +44,11 @@
   end
 
   g.column name: 'Store', attribute: 'store', assoc: :store do |ticket|
-    ticket.store.store
+    if ticket.store
+      ticket.store.store
+    else
+      "No Store"
+    end
   end
 
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|

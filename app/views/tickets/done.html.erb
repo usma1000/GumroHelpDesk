@@ -36,7 +36,11 @@
   end
 
   g.column name: 'Store', attribute: 'store', assoc: :store do |ticket|
-    ticket.store.store
+    if ticket.store
+      ticket.store.store
+    else
+      "No Store"
+    end
   end
 
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
@@ -48,7 +52,7 @@
       truncate(ticket.user.email, length: 25)
     end
   end
-  
+
   g.column do |ticket|
     link_to open_status_ticket_path(ticket), class: "btn btn-default" do
       '<i class="glyphicon glyphicon-inbox" aria-hidden="true"></i>'.html_safe
