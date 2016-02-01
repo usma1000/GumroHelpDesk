@@ -8,6 +8,9 @@
     %p
       = @ticket.content
     %strong
-      = @ticket.store.store
+      - if @ticket.store
+        %strong= @ticket.store.store
+      - else
+        %span No Store
     %p
       = link_to "View this ticket online.", ticket_path(@ticket)
