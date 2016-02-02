@@ -5,6 +5,6 @@ class TicketMailer < ApplicationMailer
     @ticket = ticket
     @subject = "New Ticket - " + @ticket.subject
 
-    mail(to: 'info@gumroandassociates.com', subject: @subject)
+    mail(to: 'rgumro@gumroandassociates.com', subject: @subject)
   end
 end
