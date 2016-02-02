@@ -7,6 +7,4 @@
       = @ticket.subject
     %p
       = @ticket.content
-    %p
-      = link_to "View this ticket online.", ticket_path(@ticket), only_path: false
     %a{:href => "https://gumrohelpdesk.herokuapp.com"} See all tickets.
