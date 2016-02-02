@@ -32,4 +32,5 @@
       = link_to 'Reopen', open_status_ticket_path(@ticket), class: "btn btn-default"
     - if @ticket.open?
       = link_to 'Postone', waiting_status_ticket_path(@ticket), class: "btn btn-default"
-    = link_to 'Trash', trashed_status_ticket_path(@ticket), class: "btn btn-danger"
+    - if !@ticket.trashed?
+      = link_to 'Trash', trashed_status_ticket_path(@ticket), class: "btn btn-danger"

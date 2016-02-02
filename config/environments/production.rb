@@ -70,9 +70,9 @@ config.action_mailer.raise_delivery_errors = false
   config.action_mailer.smtp_settings = {
    :port                 => 587,
    :address              => "smtp.mailgun.org",
-   :domain               => "gumrohelpdesk.herokuapp.com",
-   :user_name            => "postmaster@gumrocms.gumroandassociates.com",
-   :password             => "be14f37c8b927e4c4cc5873864b04a27",
+   :domain               => "sandbox3dd89b903d2d491096dbdb879aa143dc.mailgun.org",
+   :user_name            => "postmaster@sandbox3dd89b903d2d491096dbdb879aa143dc.mailgun.org",
+   :password             => "0022e7e7131a9ee9bd25b312a15e9953",
    :authentication       => "plain",
   :enable_starttls_auto => true
   }
