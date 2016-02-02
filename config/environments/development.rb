@@ -41,18 +41,17 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.default_url_options = { host: 'gumrohelpdesk.herokuapp.com' }
 
-  #Configuration for sending email
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'yourapp.heroku.com',
-    :authentication => :plain,
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   :port                 => 587,
+   :address              => "smtp.mailgun.org",
+   :domain               => "gumrohelpdesk.herokuapp.com",
+   :user_name            => "postmaster@gumrocms.gumroandassociates.com",
+   :password             => "be14f37c8b927e4c4cc5873864b04a27",
+   :authentication       => "plain",
+  :enable_starttls_auto => true
   }
-  ActionMailer::Base.delivery_method = :smtp
-
 
 end

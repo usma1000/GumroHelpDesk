@@ -7,5 +7,7 @@
       = @ticket.subject
     %p
       = @ticket.content
-    %p
-      = link_to "View this ticket online.", ticket_path(@ticket)
+    %a{:href => "https://gumrohelpdesk.herokuapp.com"}
+      = ticket_path(@ticket)
+      See all tickets.
+    %a{:href => "https://gumrohelpdesk.herokuapp.com"} See all tickets.
