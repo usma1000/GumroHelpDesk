@@ -20,3 +20,10 @@
 .navbar-brand>img {
   display: inline-block !important;
 }
+
+[type=text].form-control,
+[type=text].form-control.input-sm,
+.comment_form_field textarea {
+  border: 1px solid #e6e6e6;
+  padding-left: 5px;
+}
