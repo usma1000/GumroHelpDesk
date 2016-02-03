@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :tickets, dependent: :destroy
   belongs_to :carrier
+
+  acts_as_commontator
 end

@@ -3,6 +3,8 @@ class Ticket < ActiveRecord::Base
   belongs_to :store
   belongs_to :carrier
 
+  acts_as_commontable
+
   validates :subject, :presence => true
   validates :content, :presence => true
 

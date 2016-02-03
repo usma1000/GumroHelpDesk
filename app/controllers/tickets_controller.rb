@@ -83,6 +83,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    commontator_thread_show(@ticket)
   end
 
   # GET /tickets/new
