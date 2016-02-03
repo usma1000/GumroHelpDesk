@@ -35,5 +35,6 @@
     - if !@ticket.trashed?
       = link_to 'Trash', trashed_status_ticket_path(@ticket), class: "btn btn-danger"
   %hr
-  .well
-    = commontator_thread(@ticket)
+  .panel.panel-default
+    .panel-body
+      = commontator_thread(@ticket)
