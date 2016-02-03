@@ -14,6 +14,7 @@ gem 'sass-rails', '>= 3.2'
 gem "wice_grid", '3.6.0.pre4'
 gem 'font-awesome-sass',  '~> 4.3'
 gem 'haml-rails'
+gem 'commontator', '~> 4.11.1'
 
 group :development, :test do
   gem 'byebug'

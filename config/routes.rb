@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
+  mount Commontator::Engine => '/commontator'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
