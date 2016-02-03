@@ -1,11 +1,3 @@
-== GUMRO HELP DESK
+== GUMRO TICKETING
 
 Support ticket system used by Gumro & Associates and their carriers to report and address any delivery issues.
-
-To Do:
-
-* Display which user changed status.
-* Add labels to Tickets.
-* Add ticket#new dropdown to select from common issues.
-* Add commenting to ticket#show.
-* Create an admin management page.
