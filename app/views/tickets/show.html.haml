@@ -17,9 +17,15 @@
       .pull-right
         %strong Store:
         - if @ticket.store
-          %strong= @ticket.store.store
+          %span= @ticket.store.store
         - else
           %span No Store
+        %br
+        %strong Linehaul:
+        - if @ticket.linehaul
+          %span= @ticket.linehaul.route
+        -else
+          %span No Linehaul
       %hr
       %p= @ticket.content
   .btn-group

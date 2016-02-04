@@ -13,9 +13,15 @@
   .form-group
     = f.label :content
     = f.text_area :content, rows: "10", class: 'form-control'
-  .form-group
-    = f.label :store
-    = select("ticket", "store_id", Store.all.collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
+  %p.text-primary Choose either a store or linehaul route that this ticket is regarding.
+  .col-md-6
+    .form-group
+      = f.label :store
+      = select("ticket", "store_id", Store.all.collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
+  .col-md-6
+    .form-group
+      = f.label :linehaul
+      = select("ticket", "linehaul_id", Linehaul.all.collect{|l| [l.route, l.id ] }, {prompt: 'Select Route'}, class: 'form-control' )
   .actions
     = link_to 'Back', tickets_path, class: 'btn btn-default'
     = f.submit class: 'btn btn-primary pull-right'

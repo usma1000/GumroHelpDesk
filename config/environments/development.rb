@@ -39,19 +39,4 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-
-
-  config.action_mailer.default_url_options = { host: 'gumrohelpdesk.herokuapp.com' }
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-   :port                 => 587,
-   :address              => "smtp.mailgun.org",
-   :domain               => "sandbox3dd89b903d2d491096dbdb879aa143dc.mailgun.org",
-   :user_name            => "postmaster@sandbox3dd89b903d2d491096dbdb879aa143dc.mailgun.org",
-   :password             => "0022e7e7131a9ee9bd25b312a15e9953",
-   :authentication       => "plain",
-  :enable_starttls_auto => true
-  }
-
 end

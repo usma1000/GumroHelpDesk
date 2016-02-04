@@ -43,8 +43,16 @@
     end
   end
 
+  g.column name: 'Linehaul', attribute: 'route', assoc: :linehaul do |ticket|
+    if ticket.linehaul
+      ticket.linehaul.route
+    else
+      "No Linehaul"
+    end
+  end
+
   g.column name: 'Created At', attribute: 'created_at', filter: false do |ticket|
-    time_ago_in_words(ticket.created_at) + " ago"
+    ticket.created_at.strftime("%m/%d/%y")
   end
 
   if current_user.admin?

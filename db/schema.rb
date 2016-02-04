@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204162826) do
+ActiveRecord::Schema.define(version: 20160204195735) do
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
@@ -90,17 +90,19 @@ ActiveRecord::Schema.define(version: 20160204162826) do
 
   create_table "tickets", force: :cascade do |t|
     t.string   "subject"
-    t.text     "content",    limit: 1073741823
-    t.integer  "status",                        default: 0,     null: false
-    t.boolean  "priority",                      default: false, null: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.text     "content",     limit: 1073741823
+    t.integer  "status",                         default: 0,     null: false
+    t.boolean  "priority",                       default: false, null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "user_id"
     t.integer  "store_id"
     t.integer  "carrier_id"
+    t.integer  "linehaul_id"
   end
 
   add_index "tickets", ["carrier_id"], name: "index_tickets_on_carrier_id"
+  add_index "tickets", ["linehaul_id"], name: "index_tickets_on_linehaul_id"
   add_index "tickets", ["priority"], name: "index_tickets_on_priority"
   add_index "tickets", ["status"], name: "index_tickets_on_status"
   add_index "tickets", ["store_id"], name: "index_tickets_on_store_id"

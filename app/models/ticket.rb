@@ -2,6 +2,7 @@ class Ticket < ActiveRecord::Base
   belongs_to :user
   belongs_to :store
   belongs_to :carrier
+  belongs_to :linehaul
 
   acts_as_commontable
 
