@@ -1,0 +1,13 @@
+= form_for @linehaul do |f|
+  - if @linehaul.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@linehaul.errors.count, "error")} prohibited this linehaul from being saved:"
+      %ul
+        - @linehaul.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :route
+    = f.text_field :route
+  .actions
+    = f.submit 'Save'

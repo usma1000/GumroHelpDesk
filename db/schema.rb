@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203194352) do
+ActiveRecord::Schema.define(version: 20160204162826) do
 
   create_table "carriers", force: :cascade do |t|
     t.string   "name"
@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 20160203194352) do
   end
 
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true
+
+  create_table "linehauls", force: :cascade do |t|
+    t.string   "route"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"

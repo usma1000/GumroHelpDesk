@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Route:
+  = @linehaul.route
+
+= link_to 'Edit', edit_linehaul_path(@linehaul)
+\|
+= link_to 'Back', linehauls_path

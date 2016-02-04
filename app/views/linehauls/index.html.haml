@@ -1,0 +1,23 @@
+.row
+  .col-md-6.col-md-offset-3
+    = link_to new_linehaul_path, class: 'btn btn-success pull-right' do
+      %i.glyphicon.glyphicon-plus
+      Add Linehaul
+    %p.lead Linehauls List
+
+    - if @linehauls.count > 0
+      %table.table.table-striped.table-hover
+        %tr
+          %th Route
+          %th Delete
+        - @linehauls.each do |l|
+          %tr
+            %td
+              = link_to l.route, edit_linehaul_path(l)
+            %td
+              = link_to l, method: :delete, class: 'text-danger', data: { confirm: 'Are you sure?' } do
+                %i.glyphicon.glyphicon-trash
+    - else
+      %p.text-danger There are no linehauls to display.
+  .col-md-3
+    = render 'layouts/manage'

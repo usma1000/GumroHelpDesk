@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :linehauls
   resources :carriers
   resources :locations
   resources :stores
