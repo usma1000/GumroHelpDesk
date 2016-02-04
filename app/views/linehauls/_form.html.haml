@@ -1,13 +1,18 @@
-= form_for @linehaul do |f|
-  - if @linehaul.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@linehaul.errors.count, "error")} prohibited this linehaul from being saved:"
-      %ul
-        - @linehaul.errors.full_messages.each do |msg|
-          %li= msg
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@linehaul) do |f|
+      - if @linehaul.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@linehaul.errors.count, "error")
+            prohibited this ticket from being saved:
+          %ul
+            - @linehaul.errors.full_messages.each do |message|
+              %li= message
+      .form-group
+        = f.label :route
+        = f.text_field :route, class: 'form-control'
 
-  .field
-    = f.label :route
-    = f.text_field :route
-  .actions
-    = f.submit 'Save'
+      .actions
+        = link_to 'Back', linehauls_path, class: 'btn btn-default'
+        = f.submit class: 'btn btn-primary pull-right'
