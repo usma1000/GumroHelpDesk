@@ -28,7 +28,7 @@ class LinehaulsController < ApplicationController
 
     respond_to do |format|
       if @linehaul.save
-        format.html { redirect_to @linehaul, notice: 'Linehaul was successfully created.' }
+        format.html { redirect_to linehauls_path, notice: 'Linehaul was successfully created.' }
         format.json { render :show, status: :created, location: @linehaul }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LinehaulsController < ApplicationController
   def update
     respond_to do |format|
       if @linehaul.update(linehaul_params)
-        format.html { redirect_to @linehaul, notice: 'Linehaul was successfully updated.' }
+        format.html { redirect_to linehauls_path, notice: 'Linehaul was successfully updated.' }
         format.json { render :show, status: :ok, location: @linehaul }
       else
         format.html { render :edit }
