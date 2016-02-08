@@ -17,9 +17,36 @@ describe Ticket do
     expect(ticket).to_not be_valid
   end
 
-  it "returns No Store if store is nil" do
-    ticket = FactoryGirl.create(:ticket, store: nil)
+  it "only shows tickets with priority true if priority scope is called" do
+    ticket = FactoryGirl.create(:ticket)
 
-    expect(ticket.store).to eq("No Store")
+    expect(Ticket.all.priority.count).to eq(0)
   end
+
+  describe "status" do
+    it "returns open if status is 0" do
+      ticket = FactoryGirl.create(:ticket)
+
+      expect(ticket.status).to eq("open")
+    end
+
+    it "returns waiting if status is 1" do
+      ticket = FactoryGirl.create(:ticket, status: 1)
+
+      expect(ticket.status).to eq("waiting")
+    end
+
+    it "returns done if status is 2" do
+      ticket = FactoryGirl.create(:ticket, status: 2)
+
+      expect(ticket.status).to eq("done")
+    end
+
+    it "returns trashed if status is 3" do
+      ticket = FactoryGirl.create(:ticket, status: 3)
+
+      expect(ticket.status).to eq("trashed")
+    end
+  end
+
 end

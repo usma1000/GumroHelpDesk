@@ -13,8 +13,4 @@ class Ticket < ActiveRecord::Base
 
   scope :allopen, -> {where('status = 0 or status = 1')}
   scope :priority, -> {where(priority: true)}
-
-  if !store then
-    store = "No Store"
-  end
 end
