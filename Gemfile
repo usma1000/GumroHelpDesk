@@ -19,6 +19,15 @@ gem 'commontator', '~> 4.11.1'
 group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :development do
