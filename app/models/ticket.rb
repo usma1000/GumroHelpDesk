@@ -13,4 +13,5 @@ class Ticket < ActiveRecord::Base
 
   scope :allopen, -> {where('status = 0 or status = 1')}
   scope :priority, -> {where(priority: true)}
+  
 end

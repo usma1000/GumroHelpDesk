@@ -31,15 +31,16 @@
   .btn-group
     = link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-default"
     = link_to 'Back', tickets_path, class: "btn btn-default"
-  .btn-group.pull-right
-    - if !@ticket.done?
-      = link_to 'Mark as Done', done_status_ticket_path(@ticket), class: "btn btn-success"
-    - if @ticket.done?
-      = link_to 'Reopen', open_status_ticket_path(@ticket), class: "btn btn-default"
-    - if @ticket.open?
-      = link_to 'Postone', waiting_status_ticket_path(@ticket), class: "btn btn-default"
-    - if !@ticket.trashed?
-      = link_to 'Trash', trashed_status_ticket_path(@ticket), class: "btn btn-danger"
+  - if current_user.admin?
+    .btn-group.pull-right
+      - if !@ticket.done?
+        = link_to 'Mark as Done', done_status_ticket_path(@ticket), class: "btn btn-success"
+      - if @ticket.done?
+        = link_to 'Reopen', open_status_ticket_path(@ticket), class: "btn btn-default"
+      - if @ticket.open?
+        = link_to 'Postone', waiting_status_ticket_path(@ticket), class: "btn btn-default"
+      - if !@ticket.trashed?
+        = link_to 'Trash', trashed_status_ticket_path(@ticket), class: "btn btn-danger"
   %hr
   .panel.panel-default
     .panel-body

@@ -39,6 +39,7 @@ class TicketsController < ApplicationController
   def index
     if current_user.admin?
       @tickets_open = Ticket.all.open
+      @tickets_waiting = Ticket.all.waiting
     else
       @tickets_open = Ticket.where(:carrier_id => current_user.carrier_id).open
     end
@@ -54,8 +55,9 @@ class TicketsController < ApplicationController
   def waiting
     if current_user.admin?
       @tickets_waiting = Ticket.all.waiting
+      @tickets_open = Ticket.all.open
     else
-      @tickets_waiting = Ticket.where(:user_id => current_user.id).all.waiting
+      @tickets_waiting = Ticket.where(:carrier_id => current_user.carrier_id).all.waiting
     end
     @tickets_grid = initialize_grid(@tickets_waiting, csv_file_name: 'Waiting Tickets')
     export_grid_if_requested
@@ -65,7 +67,7 @@ class TicketsController < ApplicationController
     if current_user.admin?
       @tickets_done = Ticket.all.done
     else
-      @tickets_done = Ticket.where(:user_id => current_user.id).all.done
+      @tickets_done = Ticket.where(:carrier_id => current_user.carrier_id).all.done
     end
     @tickets_grid = initialize_grid(@tickets_done, csv_file_name: 'Done Tickets')
     export_grid_if_requested
@@ -75,7 +77,7 @@ class TicketsController < ApplicationController
     if current_user.admin?
       @tickets_trashed = Ticket.all.trashed
     else
-      @tickets_trashed = Ticket.where(:user_id => current_user.id).all.trashed
+      @tickets_trashed = Ticket.where(:carrier_id => current_user.carrier_id).all.trashed
     end
     @tickets_grid = initialize_grid(@tickets_trashed, csv_file_name: 'Trashed Tickets')
     export_grid_if_requested
