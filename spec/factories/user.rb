@@ -6,5 +6,6 @@ FactoryGirl.define do
     f.password { Faker::Internet.password }
     f.first_name { Faker::Name.first_name }
     f.last_name { Faker::Name.last_name }
+    f.carrier_id { Faker::Number.digit }
   end
 end
