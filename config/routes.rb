@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/statistics', to: 'statistics#index'
 
   get '/priority', to: 'tickets#priority', as: 'priority_tickets'
   get '/waiting', to: 'tickets#waiting', as: 'waiting_tickets'

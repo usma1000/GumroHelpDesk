@@ -11,6 +11,11 @@ feature "manage tickets" do
     expect(page).to have_content "New Ticket"
   end
 
+  scenario "when user creates a new ticket, they are redirected to show page" do
+    create_ticket
+    expect(page).to have_content "subject"
+  end
+
   scenario "user creates new ticket and it shows up in the table" do
     create_ticket
     visit '/'
@@ -24,10 +29,10 @@ feature "manage tickets" do
   end
 
   scenario "when user clicks the ticket's subject, user is redirected to that ticket's show page" do
-    create_ticket(subject: "click this subject")
+    create_ticket
     visit "/"
-    click_link "click this subject"
-    expect(page).to have_content "click this subject"
+    find('tr', text: "subject").click_link("subject")
+    expect(page).to have_content "subject"
   end
 end
 
@@ -46,7 +51,7 @@ def create_ticket(subject="subject", content="content")
   click_on "Create Ticket"
 end
 
-def should_see_ticket(subject: "subject")
+def should_see_ticket(subject="subject")
   within "table" do
     expect(page).to have_css "tr", text: subject
   end

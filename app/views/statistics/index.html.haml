@@ -1,0 +1,8 @@
+.row
+  .col-md-6.col-md-offset-3
+    %p.lead Statistics
+    %p Total tickets: #{@tickets.count}
+    %p Total tickets this month: #{@tickets_this_month.count}
+    %p Total tickets this week: #{@tickets_this_week.count}
+  .col-md-3
+    = render 'layouts/manage'

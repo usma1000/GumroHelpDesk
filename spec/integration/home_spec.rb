@@ -2,7 +2,7 @@ require 'rails_helper'
 include Warden::Test::Helpers
 
 describe "the log in process" do
-  it "redirects to login page" do
+  it "when visiting root, it redirects to login page if not logged in" do
     visit '/'
 
     expect(page).to have_content('Log In')
