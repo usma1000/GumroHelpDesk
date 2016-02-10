@@ -3,8 +3,15 @@
     %p.lead Statistics
     %p Total tickets: #{@tickets.count}
     %p Total tickets this month: #{@tickets_this_month.count}
-    %p Total tickets this week: #{@tickets_this_week.count}
+    %p
+      Total tickets this week: #{@tickets_this_week.count}
+      - @tickets_this_week.each do |ticket|
+        %span.pill= link_to ticket.subject, ticket
+    %p
+      Total tickets today: #{@tickets_today.count}
+      - @tickets_today.each do |ticket|
+        %span= link_to ticket.subject, ticket
     %p Total tickets last month: #{@tickets_last_month.count}
-    %p Total tickets today: #{@tickets_today.count}
+
   .col-sm-3
     = render 'layouts/manage'
