@@ -10,7 +10,7 @@
             %li= message
     .form-group
       = f.label :name
-      = f.text_field :name, class: 'form-control'
+      = f.text_field :name, autofocus: true, class: 'form-control'
 
       = f.label :carrier_id, "Carrier"
       = f.collection_select(:carrier_id, Carrier.all, :id, :name, { :prompt => 'Select a carrier', :selected => @location.carrier_id }, { class: 'form-control' })

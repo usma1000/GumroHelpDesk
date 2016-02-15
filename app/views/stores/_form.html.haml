@@ -11,7 +11,7 @@
               %li= message
       .form-group
         = f.label :store
-        = f.text_field :store, class: 'form-control'
+        = f.text_field :store, autofocus: true, class: 'form-control'
 
         = f.label :location_id, "Location"
         = f.collection_select(:location_id, Location.all, :id, :name, { :prompt => 'Select a location', :selected => @store.location_id }, { class: 'form-control' })

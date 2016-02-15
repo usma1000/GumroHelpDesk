@@ -10,10 +10,10 @@
               %i.glyphicon.glyphicon-bookmark{"aria-hidden" => "true", :style => "color: #e6e6e6"}
         %span.lead= @ticket.subject
         %span.text-muted.pull-right
-          Created #{time_ago_in_words(@ticket.created_at)} ago.
+          Created #{time_ago_in_words(@ticket.created_at)} ago by #{@ticket.user.full_name}.
     .panel-body
       %strong Status:
-      %strong= @ticket.status.capitalize
+      = @ticket.status.capitalize
       .pull-right
         %strong Store:
         - if @ticket.store

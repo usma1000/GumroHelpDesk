@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     elsif !first_name && last_name
       last_name
     else
-      "No name"
+      email
     end
   end
 end

@@ -9,7 +9,7 @@
           %li= message
   .form-group
     = f.label :subject
-    = f.text_field :subject, class: 'form-control'
+    = f.text_field :subject, autofocus: true, class: 'form-control'
   .form-group
     = f.label :content
     = f.text_area :content, rows: "10", class: 'form-control'
