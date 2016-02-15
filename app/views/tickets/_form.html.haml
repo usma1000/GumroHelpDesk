@@ -17,7 +17,7 @@
   .col-md-6
     .form-group
       = f.label :store
-      = select("ticket", "store_id", Store.all.collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
+      = select("ticket", "store_id", Store.all.order('store ASC').collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
   .col-md-6
     .form-group
       = f.label :linehaul
