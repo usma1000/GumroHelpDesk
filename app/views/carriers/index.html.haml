@@ -24,13 +24,14 @@
 
 .row
   - @carrier.each do |c|
-    .col-sm-3
-      .panel.panel-default
-        .panel-heading
-          %p.lead= c.name
-        .panel-body
-          - c.locations.each do |l|
-            %strong= l.name
-            %ul
-              - l.stores.each do |s|
-                %li= s.store
+    - if c.locations.count > 0
+      .col-sm-3
+        .panel.panel-default
+          .panel-heading
+            %p.lead= c.name
+          .panel-body
+            - c.locations.each do |l|
+              %strong= l.name
+              %ul
+                - l.stores.each do |s|
+                  %li= s.store
