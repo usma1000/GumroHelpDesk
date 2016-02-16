@@ -1,5 +1,5 @@
 .row
-  .col-md-6.col-md-offset-3
+  .col-md-9
     = link_to new_carrier_path, class: 'btn btn-success pull-right' do
       %i.glyphicon.glyphicon-plus
       Add Carrier
@@ -21,3 +21,16 @@
       %p.text-danger There are no carriers to display.
   .col-md-3
     = render 'layouts/manage'
+
+.row
+  - @carrier.each do |c|
+    .col-sm-3
+      .panel.panel-default
+        .panel-heading
+          %p.lead= c.name
+        .panel-body
+          - c.locations.each do |l|
+            %strong= l.name
+            %ul
+              - l.stores.each do |s|
+                %li= s.store
