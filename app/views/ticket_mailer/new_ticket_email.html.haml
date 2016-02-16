@@ -4,6 +4,12 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
     %h1= @ticket.subject
+    %p
+      %strong Store:
+      = @ticket.store.present? ? @ticket.store.store : "No store selected"
+    %p
+      %strong Linehaul:
+      = @ticket.linehaul.present? ? @ticket.linehaul.route : "No route selected"
     %hr
     %p= @ticket.content
     %a{:href => "https://gumrohelpdesk.herokuapp.com"} See all tickets
