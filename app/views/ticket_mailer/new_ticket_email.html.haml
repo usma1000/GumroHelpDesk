@@ -3,8 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1
-      = @ticket.subject
-    %p
-      = @ticket.content
-    %a{:href => "https://gumrohelpdesk.herokuapp.com"} See all tickets.
+    %h1= @ticket.subject
+    %hr
+    %p= @ticket.content
+    %a{:href => "https://gumrohelpdesk.herokuapp.com"} See all tickets
