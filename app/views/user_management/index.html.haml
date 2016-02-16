@@ -1,0 +1,28 @@
+.row
+  .col-md-6.col-md-offset-3
+    %p.lead Users List
+    %table.table.table-striped.table-hover
+      %tr
+        %th Email
+        %th Name
+        %th Carrier
+        %th Tickets
+        %th Admin?
+        %th Make Admin
+      - @users.each do |u|
+        %tr
+          %td
+            = u.email
+          %td
+            = [u.first_name, u.last_name].reject(&:blank?).join(" ")
+          %td
+            = u.carrier.name
+          %td
+            = u.tickets.count
+          %td
+            = u.admin ? "Yes" : "No"
+          %td
+            - u.admin ? admin_button = "Downgrade" : admin_button = "Upgrade"
+            = button_to admin_button, {action: "toggle_admin", id: u.id }, class: 'btn btn-default', method: :put
+  .col-md-3
+    = render 'layouts/manage'

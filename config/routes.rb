@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :linehauls
   resources :carriers
   resources :locations
@@ -15,8 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/statistics', to: 'statistics#index'
+  put 'admin/:id' => 'user_management#toggle_admin', as: 'toggle_admin'
 
+  get '/statistics', to: 'statistics#index'
+  get 'user_management/index'
   get '/priority', to: 'tickets#priority', as: 'priority_tickets'
   get '/waiting', to: 'tickets#waiting', as: 'waiting_tickets'
   get '/done', to: 'tickets#done', as: 'done_tickets'
