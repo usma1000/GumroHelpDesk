@@ -31,7 +31,7 @@
             %p.lead= c.name
           .panel-body
             - c.locations.each do |l|
-              %strong= l.name
+              %strong= link_to l.name, l
               %ul
                 - l.stores.each do |s|
                   %li= s.store
