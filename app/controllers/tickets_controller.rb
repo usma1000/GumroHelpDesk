@@ -92,6 +92,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @locations = Location.all
+    @carrier = current_user.carrier
   end
 
   # GET /tickets/1/edit
