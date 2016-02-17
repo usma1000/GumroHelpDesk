@@ -39,7 +39,8 @@ end
 ########## Helper Methods
 
 def sign_in(email="test@test.com", carrier_id=1)
-  user = User.create(email: email, password: "password", first_name: "John", last_name: "Doe", carrier_id: carrier_id)
+  FactoryGirl.create(:carrier)
+  user = User.create(email: email, password: "password", first_name: "John", last_name: "Doe", carrier_id: carrier_id, admin: false)
   login_as user
   visit "/"
 end

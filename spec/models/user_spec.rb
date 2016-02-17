@@ -24,9 +24,9 @@ describe User do
       expect(user.full_name).to eq("John Doe")
     end
 
-    it "returns no name if both names are nil" do
-      user = FactoryGirl.create(:user, first_name: nil, last_name: nil)
-      expect(user.full_name).to eq("No name")
+    it "returns user email if both names are nil" do
+      user = FactoryGirl.create(:user, first_name: nil, last_name: nil, email: "test@test.com")
+      expect(user.full_name).to eq("test@test.com")
     end
 
     it "returns only the first name if the last name is nil" do

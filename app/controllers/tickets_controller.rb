@@ -97,11 +97,13 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1/edit
   def edit
+    @carrier = current_user.carrier
   end
 
   # POST /tickets
   # POST /tickets.json
   def create
+    @carrier = current_user.carrier
     @ticket = Ticket.new(ticket_params)
     @ticket.user_id = current_user.id
     @ticket.carrier_id = current_user.carrier_id
