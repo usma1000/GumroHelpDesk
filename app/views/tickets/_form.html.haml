@@ -17,7 +17,10 @@
   .col-md-6
     .form-group
       = f.label :store
-      = select("ticket", "store_id", @carrier.associated_stores.collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
+      - if !current_user.admin
+        = select("ticket", "store_id", @carrier.associated_stores.collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
+      - else
+        = select("ticket", "store_id", Store.all.order('store ASC').collect{|s| [ s.store, s.id ] }, {prompt: 'Select Store'}, class: 'form-control' )
   .col-md-6
     .form-group
       = f.label :linehaul
