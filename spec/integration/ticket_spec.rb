@@ -3,6 +3,7 @@ include Warden::Test::Helpers
 
 feature "manage tickets" do
   before(:each) do
+    create_carrier
     sign_in
   end
 
@@ -38,8 +39,11 @@ end
 
 ########## Helper Methods
 
-def sign_in(email="test@test.com", carrier_id=1)
+def create_carrier
   FactoryGirl.create(:carrier)
+end
+
+def sign_in(email="test@test.com", carrier_id=1)
   user = User.create(email: email, password: "password", first_name: "John", last_name: "Doe", carrier_id: carrier_id, admin: false)
   login_as user
   visit "/"
