@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :customers
   resources :linehauls
   resources :carriers
   resources :locations
