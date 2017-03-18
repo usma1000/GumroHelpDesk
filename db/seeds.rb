@@ -8,7 +8,9 @@ user_list = [
   ["jjoshi@gumroandassociates.com", "Jagdip", "Joshi", "PA55W0RD", 1, true]
 ]
 
-User.create!(email: "anandu@gumroandassociates.com", first_name: "Anand", last_name: "Upadhyay", password: "Eledra10", carrier_id: 1, admin: true)
+user_list.each do |email, first_name, last_name, password, carrier_id, admin|
+  User.create!(email: email, first_name: first_name, last_name: last_name, password: password, carrier_id: carrier_id, admin: admin)
+end
 
 carrier_list = [
   "Gumro & Associates",
