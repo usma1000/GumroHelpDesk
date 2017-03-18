@@ -1,3 +1,5 @@
+# To reset the database, run -- bundle exec rake db:schema:load db:seed
+
 User.create!(email: "anandu@gumroandassociates.com", first_name: "Anand", last_name: "Upadhyay", password: "Eledra10", carrier_id: 1, admin: true)
 
 carrier_list = [
