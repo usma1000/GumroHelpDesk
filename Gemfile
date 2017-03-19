@@ -15,6 +15,7 @@ gem "wice_grid", '3.6.0.pre4'
 gem 'font-awesome-sass',  '~> 4.3'
 gem 'haml-rails'
 gem 'commontator', '~> 4.11.1'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'

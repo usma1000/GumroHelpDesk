@@ -70,8 +70,8 @@ Rails.application.configure do
    :port                 => 587,
    :address              => "smtp.mailgun.org",
    :domain               => "hm.gumroandassociates.com",
-   :user_name            => "postmaster@hm.gumroandassociates.com",
-   :password             => "7fc6f8b3459fc99fc4cb1b42f13db851",
+   :user_name            => ENV["MAILGUN_USER_NAME"],
+   :password             => ENV["MAILGUN_PASSWORD"],
    :authentication       => "plain",
   :enable_starttls_auto => true
   }
