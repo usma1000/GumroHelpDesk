@@ -1,5 +1,5 @@
-# To reset the database, run -- bundle exec rake db:schema:load db:seed --remote heroku
-# other remote is dsw
+# To reset the database, run -- bundle exec rake db:schema:load db:seed
+# If on production server, add --remote heroku. Other remote is dsw
 
 user_list = [
   ["anandu@gumroandassociates.com", "Anand", "Upadhyay", "Eledra10", 1, true],
