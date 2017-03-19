@@ -36,6 +36,20 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+
+  config.action_mailer.default_url_options = { host: 'hm.gumroandassociates.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   :port                 => 587,
+   :address              => "smtp.mailgun.org",
+   :domain               => "hm.gumroandassociates.com",
+   :user_name            => "postmaster@hm.gumroandassociates.com",
+   :password             => "7fc6f8b3459fc99fc4cb1b42f13db851",
+   :authentication       => "plain",
+  :enable_starttls_auto => true
+  }
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
