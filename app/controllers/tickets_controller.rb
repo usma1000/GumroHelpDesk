@@ -109,8 +109,8 @@ class TicketsController < ApplicationController
     @ticket.carrier_id = current_user.carrier_id
     respond_to do |format|
       if @ticket.save
-        # Send an email to info@gumroandassociates.com after save with ticket subject, email, and store.
-        TicketMailer.new_ticket_email(@ticket).deliver_now
+        # Send an email to h&m@gumroandassociates.com after save with ticket subject, email, and store.
+        # TicketMailer.new_ticket_email(@ticket).deliver_now
 
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render :show, status: :created, location: @ticket }
