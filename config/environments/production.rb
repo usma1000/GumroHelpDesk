@@ -68,12 +68,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
    :port                 => 587,
-   :address              => "smtp.mailgun.org",
-   :domain               => "hm.gumroandassociates.com",
-   :user_name            => ENV["MAILGUN_USER_NAME"],
-   :password             => ENV["MAILGUN_PASSWORD"],
-   :authentication       => "plain",
-  :enable_starttls_auto => true
+   :address              => "smtp.office365.com",
+   :domain               => "gumroandassociates.com",
+   :user_name            => ENV["GUMRO_EMAIL_USERNAME"],
+   :password             => ENV["GUMRO_EMAIL_PASSWORD"],
+   :authentication       => "login",
+   :enable_starttls_auto => true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

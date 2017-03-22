@@ -43,12 +43,20 @@ Rails.application.configure do
    :port                 => 587,
    :address              => "smtp.office365.com",
    :domain               => "gumroandassociates.com",
-   :user_name            => 'admin@gumroandassociates.com',
-   :password             => 'NVXs59Vb',
+   :user_name            => ENV["GUMRO_EMAIL_USERNAME"],
+   :password             => ENV["GUMRO_EMAIL_PASSWORD"],
    :authentication       => "login",
-  :enable_starttls_auto => true
+   :enable_starttls_auto => true
   }
-
+  # config.action_mailer.smtp_settings = {
+  #  :port                 => 587,
+  #  :address              => "smtp.mailgun.org",
+  #  :domain               => "hm.gumroandassociates.com",
+  #  :user_name            => 'postmaster@sandbox3dd89b903d2d491096dbdb879aa143dc.mailgun.org',
+  #  :password             => '0022e7e7131a9ee9bd25b312a15e9953',
+  #  :authentication       => "plain",
+  #  :enable_starttls_auto => true
+  # }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

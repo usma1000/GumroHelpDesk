@@ -1,5 +1,5 @@
 class TicketMailer < ApplicationMailer
-  default from: "h&m@gumroandassociates.com"
+  default from: "admin@gumroandassociates.com"
 
   def new_ticket_email(ticket)
     @ticket = ticket
