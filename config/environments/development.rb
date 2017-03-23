@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
 
-
+  config.action_mailer.default_url_options = { host: 'hm.gumroandassociates.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
    :port                 => 587,
